@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {StrictMode} from "react";
+import {createRoot} from 'react-dom/client';
+import { Provider } from "react-redux";
+import ChessApp from "./ChessApp";
+import store from "./store";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = 
+document.getElementById('root');
+const root = 
+createRoot(rootElement);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <ChessApp />
+  </Provider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
